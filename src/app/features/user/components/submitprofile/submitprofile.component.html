@@ -1,0 +1,339 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h5 class="card-title">Submit FeedBack</h5>
+          </div>
+          <div class="card-body">
+            <form #myForm="ngForm">
+              <div class="row">
+                <div class="col-md-12">
+                  <div>
+                    <input
+                      type="radio"
+                      value="D"
+                      class="ng-pristine ng-untouched ng-valid"
+                      name="feedbackType"
+                      [(ngModel)]="feedbackType"
+                      [checked]="true"
+                    />Detailed Feedback &nbsp;&nbsp;
+                    <input
+                      type="radio"
+                      value="S"
+                      class="ng-pristine ng-untouched ng-valid"
+                      name="feedbackType"
+                      [checked]="false"
+                      [(ngModel)]="feedbackType"
+                    />Summary Feedback
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="posreadonly">Name:</label>
+                  <label class="posvalue"> {{ user.name }}</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="posreadonly">Mobile Number:</label>
+                  <label class="posvalue"> {{ user.contactNo }}</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="posreadonly">Email Id:</label>
+                  <label class="posvalue"> {{ user.emailId }}</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="posreadonly">Total Exp(Yrs):</label>
+                  <label class="posvalue">{{ user.totalExprience }}</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="posreadonly">Primary Skill:</label>
+                  <label class="posvalue"> {{ user.primarySkills }}</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="posreadonly">JD Id:</label>
+                  <label class="posvalue"
+                    ><a
+                      mat-list-item
+                      (click)="openDialog(jdpopupComponentRef, user)"
+                    >
+                      <span class="nav-caption"
+                        ><u>{{ user.jdId }}</u></span
+                      >
+                    </a></label
+                  >
+                </div>
+              </div>
+              <div class="row"></div>
+              <div class="row" *ngIf="feedbackType !== 'S'">
+                <div class="col">
+                  <label class="pos" for="name">Candidate DOB:</label>
+                  <input
+                    type="text"
+                    maxlength="100"
+                    style="height: 20px; width: 120px"
+                    name="dob"
+                    placeholder="dd-mm-yyyy"
+                    [(ngModel)]="dob"
+                  />
+                </div>
+
+                <div class="w-100"></div>
+                <div class="col">
+                  <label class="pos" for="name">Candidate Qualification:</label>
+                  <input
+                    type="text"
+                    maxlength="100"
+                    style="height: 20px; width: 120px"
+                    name="qualification"
+                    [(ngModel)]="qualification"
+                  />
+                </div>
+                <div class="w-100"></div>
+                <div class="col">
+                  <label class="pos" for="name">Candidate Location:</label>
+                  <input
+                    type="text"
+                    maxlength="100"
+                    style="height: 20px; width: 120px"
+                    name="location"
+                    [(ngModel)]="location"
+                  />
+                </div>
+                <div class="w-100"></div>
+                <div class="col">
+                  <label class="pos" for="name">Current CTC(Lacs, Rs):</label>
+                  <input
+                    type="text"
+                    maxlength="100"
+                    style="height: 20px; width: 120px"
+                    name="currentCtc"
+                    [(ngModel)]="currentCtc"
+                  />
+                </div>
+                <div class="w-100"></div>
+                <div class="col">
+                  <label class="pos" for="name">Expected CTC(Lacs, Rs):</label>
+                  <input
+                    type="text"
+                    maxlength="100"
+                    style="height: 20px; width: 120px"
+                    name="expectedCtc"
+                    [(ngModel)]="expectedCtc"
+                  />
+                </div>
+                <div class="w-100"></div>
+                <div class="col">
+                  <label class="pos" for="name">Other Skill(s):</label>
+                  <input
+                    type="text"
+                    maxlength="100"
+                    style="height: 20px; width: 120px"
+                    name="otherSkills"
+                    [(ngModel)]="otherSkills"
+                  />
+                  &nbsp;&nbsp;
+                  <select
+                    class="ng-pristine ng-valid ng-touched"
+                    name="otherSkillsRating"
+                    [(ngModel)]="otherSkillsRating"
+                  >
+                    <option value="">--Select--</option>
+                    <option value="No Info">No Info</option>
+
+                    <option value="Below Average">Below Average</option>
+
+                    <option value="Average">Average</option>
+
+                    <option value="Good ">Good</option>
+
+                    <option value="Very Good">Very Good</option>
+                  </select>
+                </div>
+                <div class="w-100"></div>
+                <div class="col">
+                  <label class="pos" for="name">Communication:</label>
+                  <input
+                    type="text"
+                    maxlength="100"
+                    style="height: 20px; width: 120px"
+                    name="communication"
+                    [(ngModel)]="communication"
+                  />
+                  &nbsp;&nbsp;
+                  <select
+                    class="ng-pristine ng-valid ng-touched"
+                    name="communicationRating"
+                    [(ngModel)]="communicationRating"
+                  >
+                    <option value="">--Select--</option>
+                    <option value="No Info">No Info</option>
+
+                    <option value="Below Average">Below Average</option>
+
+                    <option value="Average">Average</option>
+
+                    <option value="Good ">Good</option>
+
+                    <option value="Very Good">Very Good</option>
+                  </select>
+                </div>
+                <div class="w-100"></div>
+                <div class="col">
+                  <label class="pos" for="name">Notice Period(Days):</label>
+                  <input
+                    type="text"
+                    maxlength="100"
+                    style="height: 20px; width: 120px"
+                    name="noticePeriod"
+                    [(ngModel)]="noticePeriod"
+                  />
+                </div>
+                <div class="w-100"></div>
+                <div class="col">
+                  <label class="pos" for="name">Total Experience(Yrs):</label>
+                  <input
+                    type="text"
+                    maxlength="100"
+                    style="height: 20px; width: 120px"
+                    name="totalExperience"
+                    [(ngModel)]="totalExperience"
+                  />
+                </div>
+                <div class="w-100"></div>
+                <div class="col">
+                  <label class="pos" for="name"
+                    >Relative Experience(Yrs):</label
+                  >
+                  <input
+                    type="text"
+                    maxlength="100"
+                    style="height: 20px; width: 120px"
+                    name="relativeExperience"
+                    [(ngModel)]="relativeExperience"
+                  />
+                </div>
+                <div class="w-100"></div>
+                <div class="col">
+                  <label class="pos" for="name">Can Relocate?:</label>
+                  <select
+                    class="ng-pristine ng-valid ng-touched"
+                    name="relocate"
+                    [(ngModel)]="relocate"
+                  >
+                    <option value="">--Select--</option>
+                    <option value="true">Yes</option>
+
+                    <option value="false">No</option>
+                  </select>
+                </div>
+                <div class="w-100"></div>
+                <div class="col">
+                  <label class="pos" for="name">Ability to learn:</label>
+                  <input
+                    type="text"
+                    maxlength="100"
+                    style="height: 20px; width: 120px"
+                    name="abilityToLearn"
+                    [(ngModel)]="abilityToLearn"
+                  />
+                  &nbsp;&nbsp;
+                  <select
+                    class="ng-pristine ng-valid ng-touched"
+                    name="abilityToLearnRating"
+                    [(ngModel)]="abilityToLearnRating"
+                  >
+                    <option value="">--Select--</option>
+
+                    <option value="No Info">No Info</option>
+
+                    <option value="Below Average">Below Average</option>
+
+                    <option value="Average">Average</option>
+
+                    <option value="Good ">Good</option>
+
+                    <option value="Very Good">Very Good</option>
+                  </select>
+                </div>
+                <div class="w-100"></div>
+                <div class="col">
+                  <label class="pos" for="name"
+                    >Primary Skill(comma separated):</label
+                  >
+                  <input
+                    type="text"
+                    maxlength="100"
+                    style="height: 20px; width: 120px"
+                    name="primarySkills"
+                    [(ngModel)]="primarySkills"
+                  />
+                  &nbsp;&nbsp;
+                  <select
+                    class="ng-pristine ng-valid ng-touched"
+                    name="primarySkillsRating"
+                    [(ngModel)]="primarySkillsRating"
+                  >
+                    <option value="">--Select--</option>
+
+                    <option value="No Info">No Info</option>
+
+                    <option value="Below Average">Below Average</option>
+
+                    <option value="Average">Average</option>
+
+                    <option value="Good ">Good</option>
+                    ;/l
+
+                    <option value="Very Good">Very Good</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="w-100"></div>
+                <div class="col">
+                  <label class="pos" for="name">Screening Result:</label>
+                  <select
+                    class="ng-pristine ng-valid ng-touched"
+                    name="screeningResult"
+                    required
+                    [(ngModel)]="screeningResult"
+                  >
+                    <option value="">--Select--</option>
+
+                    <option value="Selected">Selected</option>
+
+                    <option value="Rejected">Rejected</option>
+                  </select>
+                </div>
+                <div class="w-100"></div>
+                <div class="col">
+                  <label class="pos" for="name">Remarks:</label>
+                  <textarea
+                    matInput
+                    placeholder=""
+                    name="remarks"
+                    [(ngModel)]="remarks"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+              <div class="row"></div>
+              <button
+                mat-raised-button
+                type="submit"
+                class="btn btn-danger pull-right"
+                (click)="submitFeedback(myForm)"
+              >
+                Submit
+              </button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

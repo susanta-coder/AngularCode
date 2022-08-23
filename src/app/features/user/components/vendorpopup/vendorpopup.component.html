@@ -1,0 +1,65 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h5 class="card-title">Vendor Details</h5>
+          </div>
+          <div class="card-body">
+            <form #myForm="ngForm">
+              <div class="row" >
+                <div class="col-md-12">
+                  <label class="posreadonly">Vendor Id:</label>
+                 <label class="posvalue"> {{ user.id }}</label>
+               </div>
+                 <div class="col-md-12">
+                   <label class="posreadonly">Name:</label>
+                  <label class="posvalue"> {{ user.name }}</label>
+                </div>
+                 <div class="col-md-12">
+                  <label class="posreadonly">Address:</label>
+                  <label class="posvalue"> {{ user.address }}</label>
+                </div>
+                <div class="col-md-12">
+                  <label class="posreadonly">Email Id:</label>
+                  <label class="posvalue"> {{ user.emailId }}</label>
+                </div>
+                <div class="col-md-12">
+                  <label class="posreadonly">Contact No.:</label>
+                  <label class="posvalue">{{ user.contactNo }}</label>
+                </div>
+                <div class="col-md-12">
+                  <label class="posreadonly">Location:</label>
+                  <label class="posvalue">{{ user.location }}</label>
+                </div>
+
+                <div class="col-md-12">
+                  <label class="posreadonly">Remarks:</label>
+                  <label class="posvalue">{{ user.remarks }}</label>
+                </div>
+                <div class="col-md-12">
+                  <label class="posreadonly">SPOC:</label>
+                  <label class="posvalue">{{ user.contactPerson }}</label>
+                </div>
+                <div class="col-md-12">
+                  <label class="posreadonly">SPOC Designation:</label>
+                  <label class="posvalue">{{ user.designation }}</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="posreadonly">Org Id:</label>
+                  <label class="posvalue">{{ user.orgId }}</label>
+                </div>
+                <div class="col-md-12">
+                  <label class="posreadonly">Org Name:</label>
+                  <label class="posvalue">{{ user.organisationName}}</label>
+                </div>
+              </div>
+              <div class="row"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

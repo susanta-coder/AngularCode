@@ -1,0 +1,40 @@
+
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-danger">
+              <h4 class="card-title">Query Response</h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class="text-primary">
+                    <th>SL No</th>
+                    <th>Query ID</th>
+                    <th>Subject</th>
+                    <th>Query</th>
+                    <th>Query Submitted On</th>
+                    <th>Response</th>
+                    <th>Responded On</th>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let user of users">
+                      <td>{{ user.id }}</td>
+                      <td>{{ user.id }}</td>
+                      <td>{{ user.message }}</td>
+                      <td>{{ user.query }}</td>
+                      <td>{{ user.createdAt }}</td>
+                      <td>{{ user.feedback }}</td>
+                      <td>{{ user.updatedAt }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

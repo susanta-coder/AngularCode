@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hms-ui
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: hms-ui
+  replicas: 1
+  template:
+    metadata:
+      name: hms-ui
+      labels:
+        app: hms-ui
+    spec:
+      containers:
+      - name: hms-ui             
+        image: 773991669539.dkr.ecr.us-east-2.amazonaws.com/hms_ecr_repo:latest

@@ -1,0 +1,102 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Refer a Friend</h4>
+                        <p class="card-category">Complete Candidate profile</p>
+                    </div>
+
+                    <div class="card-body">
+                        <form #myForm="ngForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Referer Name"  name ="refererName" [(ngModel)]="refererName" required >
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Referer Contact Number" name="refererContactNo" [(ngModel)]="refererContactNo" required>
+                                    </mat-form-field>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Referer Email Id" type="email" name="refererEmailId" [(ngModel)]="refererEmailId" required>
+                                </mat-form-field>
+                              </div>
+                          </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Candidate Name" type="text" name="name" [(ngModel)]="name" required>
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Contact No" type="text" name="contactNo" [(ngModel)]="contactNo" required>
+                                </mat-form-field>
+                              </div>
+
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Email id" type="email" name="emailId" [(ngModel)]="emailId" required>
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Total Exp (Yrs)" type="text" name="totalExprience" [(ngModel)]="totalExprience" required>
+                                </mat-form-field>
+                              </div>
+                          </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Primary SKills" type="text" name="primarySkills" [(ngModel)]="primarySkills" required>
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Current Location" type="text" name="currentLocation" [(ngModel)]="currentLocation" required>
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Expected CTC(Lacs, Rs):" type="text" name="expectedCtc" [(ngModel)]="expectedCtc" required>
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Gender" type="text" name="gender" [(ngModel)]="gender" required>
+                                </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <label>Remarks</label>
+                              <mat-form-field class="example-full-width">
+                                 <textarea matInput placeholder="" name="remarks"  required></textarea>
+                               </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                              <input class="form-control" type="file"
+                              multiple >
+                            </div>
+                        </div>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="referCandidate(myForm)">Submit</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>

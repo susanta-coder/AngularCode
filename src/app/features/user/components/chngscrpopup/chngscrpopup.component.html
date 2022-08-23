@@ -1,0 +1,68 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h5 class="card-title">Pending Screening</h5>
+          </div>
+          <div class="card-body">
+            <form #myForm="ngForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="posreadonly">JD ID:</label>
+                  <label class="posvalue"> {{ user.jdId }}</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="posreadonly">Candidate Primary Skill:</label>
+                  <label class="posvalue"> {{ user.primarySkills }}</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="posreadonly">Candidate Name:</label>
+                  <label class="posvalue"> {{ user.name }}</label>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="posreadonly">Current Screener:</label>
+                  <label class="posvalue">{{ user.refererName }}</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="posreadonly">Candidate Total Exp:</label>
+                  <label class="posvalue"> {{ user.totalExprience }}</label>
+                </div>
+              </div>
+              <div class="row"></div>
+              <div class="row">
+                <div class="col">
+                  <label class="pos" for="name">Choose Screener:</label>
+                  <select
+                    class="ng-pristine ng-valid ng-touched"
+                    name="emailId"
+                    required
+                    [(ngModel)]="emailId"
+                  >
+                    <option value="">--Select--</option>
+
+                    <option *ngFor="let screener of screeners">
+                      {{ screener }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="row"></div>
+              <button
+                mat-raised-button
+                type="submit"
+                class="btn btn-danger pull-right"
+                (click)="changeScreener(myForm)"
+              >
+                Submit
+              </button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">All Screeners</h4>
+            <p class="card-category">List of All Screeners</p>
+          </div>
+          <app-progress-bar *ngIf="isLoading"></app-progress-bar>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>SL No</th>
+                  <th>Screener ID</th>
+                  <th>Name</th>
+
+                  <th>Status</th>
+                  <th>Contact No</th>
+                  <th>Email ID</th>
+                  <th>Location</th>
+
+                  <th>Primary Skill</th>
+                  <th>JDs Attended To</th>
+                  <th>Profiles Assigned</th>
+                  <th>Profile Screened</th>
+                  <th>Screening Selects</th>
+                  <th>Joiners</th>
+                  <th>Hit%</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of users">
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.name }}</td>
+
+                    <td>{{ user.statusId }}</td>
+                    <td>
+                      <div [ngSwitch]="user.contactNo">
+                        <span *ngSwitchCase="null">NA</span>
+                        <span *ngSwitchDefault>{{ user.contactNo }}</span>
+                      </div>
+                    </td>
+                    <td>{{ user.emailId }}</td>
+                    <td>{{ user.location }}</td>
+
+                    <td>{{ user.primarySkill }}</td>
+
+                    <td>{{ user.jdAttendToCount }}</td>
+                    <td>{{ user.profilereceivedCount }}</td>
+                    <td>{{ user.profileScreenedCount }}</td>
+                    <td>{{ user.screeningSelectCount }}</td>
+                    <td>0</td>
+                    <td>0.00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

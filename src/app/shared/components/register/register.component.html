@@ -1,0 +1,247 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Register</h4>
+                        <p class="card-category">Complete user profile</p>
+                    </div>
+
+                    <div class="card-body">
+                        <form #myForm="ngForm">
+                            <div class="row">
+                                <div
+                                    class="col-md-12"
+                                    *ngIf="userType == userTypes.Vendor"
+                                >
+                                    <label>Type:</label>
+                                    <mat-radio-group class = "tp-radio-group" name="vendorType"  [(ngModel)]="vendorType">
+                                        <mat-radio-button
+                                            [value]="true"
+                                            [checked]="vendorType === true"
+                                            >Company
+                                        </mat-radio-button>
+                                        <mat-radio-button
+                                            [value]="false"
+                                            [checked]="vendorType === false"
+                                            >Individual</mat-radio-button
+                                        >
+                                    </mat-radio-group>
+                                </div>
+                                <div
+                                class="col-md-12"
+                                *ngIf="!dailogData && (userType == userTypes.ClientUser || userType == userTypes.Screener)"
+                            >
+                                <label>Type:</label>
+                                <mat-radio-group class = "tp-radio-group" name="userType"  [(ngModel)]="userType">
+                                    <mat-radio-button
+                                        [value]=userTypes.ClientUser
+                                        [checked]="userType === userTypes.ClientUser"
+                                        >Client
+                                    </mat-radio-button>
+                                    <mat-radio-button
+                                        [value]=userTypes.Screener
+                                        [checked]="userType === userTypes.Screener"
+                                        >Screener</mat-radio-button
+                                    >
+                                </mat-radio-group>
+                            </div>
+
+                            <div
+                            class="col-md-12"
+                            *ngIf="!dailogData && (userType == userTypes.VendorUser || userType == userTypes.VendorScreener)"
+                        >
+                            <label>Type:</label>
+                            <mat-radio-group class = "tp-radio-group" name="userType"  [(ngModel)]="userType">
+                                <mat-radio-button
+                                    [value]=userTypes.VendorUser
+                                    [checked]="userType === userTypes.VendorUser"
+                                    >Vendor User
+                                </mat-radio-button>
+                                <mat-radio-button
+                                    [value]=userTypes.VendorScreener
+                                    [checked]="userType === userTypes.VendorScreener"
+                                    >Vendor Screener</mat-radio-button
+                                >
+                            </mat-radio-group>
+                        </div>
+                            </div>
+                            <div class="row" *ngIf="userType !== userTypes.Screener">
+                                <div class="col-md-6" >
+                                    <mat-form-field class="example-full-width">
+                                        <input
+                                            matInput
+                                            placeholder="Organisation Name"
+                                            name="organisationName"
+                                            [(ngModel)]="organisationName"
+                                            required
+                                        />
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input
+                                            matInput
+                                            placeholder="Contact Person"
+                                            name="contactPerson"
+                                            [(ngModel)]="contactPerson"
+                                            required
+                                        />
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="userType === userTypes.Screener">
+                              <div class="col-md-6" >
+                                  <mat-form-field class="example-full-width">
+                                      <input
+                                          matInput
+                                          placeholder="Name"
+                                          name="name"
+                                          [(ngModel)]="name"
+                                          required
+                                      />
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                      <input
+                                          type="number"
+                                          matInput
+                                          placeholder="Total Experience(Yrs)"
+                                          name="totalExperience"
+                                          [(ngModel)]="totalExperience"
+                                          required
+                                      />
+                                  </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row" *ngIf="userType === userTypes.Screener">
+                            <div class="col-md-6" >
+                                <mat-form-field class="example-full-width">
+                                    <input
+                                        matInput
+                                        placeholder="Primary Skill"
+                                        name="primarySkill"
+                                        [(ngModel)]="primarySkill"
+                                        required
+                                    />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                    <input
+                                        matInput
+                                        placeholder="Secondary Skill"
+                                        name="secondarySkill"
+                                        [(ngModel)]="secondarySkill"
+                                    />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input
+                                            matInput
+                                            placeholder="Location"
+                                            type="text"
+                                            name="location"
+                                            [(ngModel)]="location"
+                                            required
+                                        />
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input
+                                            matInput
+                                            placeholder="Email address"
+                                            type="email"
+                                            name="emailId"
+                                            [(ngModel)]="emailId"
+                                            required
+                                        />
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input
+                                            matInput
+                                            placeholder="Designation"
+                                            type="text"
+                                            name="designation"
+                                            [(ngModel)]="designation"
+                                            required
+                                        />
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input
+                                            matInput
+                                            placeholder="Contact No"
+                                            type="text"
+                                            name="contactNo"
+                                            [(ngModel)]="contactNo"
+                                            required
+                                        />
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="userType === userTypes.Screener">
+                              <div class="col-md-12">
+                                <label>Choose Profile to be uploaded*:</label>
+                                      <input
+                                          placeholder="profile"
+                                          type="file"
+                                          name="profileDoc"
+                                          [(ngModel)]="profileDoc"
+                                          required
+                                      />
+                              </div>
+                          </div>
+                            <div class="row" *ngIf="userType !== userTypes.Screener">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input
+                                            matInput
+                                            placeholder="Adress"
+                                            type="text"
+                                            name="address"
+                                            [(ngModel)]="address"
+                                            required
+                                        />
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Remarks</label>
+                                    <mat-form-field class="example-full-width">
+                                        <textarea
+                                            matInput
+                                            placeholder=""
+                                            name="remarks"
+                                            [(ngModel)]="remarks"
+                                            required
+                                        ></textarea>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <button
+                                mat-raised-button
+                                type="submit"
+                                class="btn btn-danger pull-right"
+                                (click)="register(myForm)"
+                            >
+                                Register
+                            </button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

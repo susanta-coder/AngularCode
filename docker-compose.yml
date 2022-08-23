@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+    angular-app:
+        build: .
+        ports:
+            - '80:80/tcp'
+        links:
+            - springbootapp
+        container_name: angular-app
+        image: 'hms_ui/angular-app:latest'

@@ -1,0 +1,96 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Profile Details</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>SL No</th>
+                  <th>CV ID</th>
+                  <th>Name</th>
+                  <th>Primary Skill</th>
+                  <th>Location</th>
+                  <th>Total Experience</th>
+                  <th>Client</th>
+                  <th>JD ID</th>
+                  <th>Contact Number</th>
+                  <th>Email ID</th>
+                  <th>Screening Status</th>
+                  <th>Screening Remarks</th>
+                  <th>View Profile</th>
+                  <th>View/Download Screening Feedback</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of users">
+                    <td>{{ user.id }}</td>
+                    <td><a
+                      mat-list-item
+                      (click)="openDialog1(candidatepopupComponentRef, user)">
+                      <span class="nav-caption"><u>{{user.id}}</u></span>
+                    </a></td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.primarySkills }}</td>
+                    <td>
+                      <div [ngSwitch]="user.currentLocation">
+                        <span *ngSwitchCase="null">NA</span>
+                        <span *ngSwitchDefault>{{ user.currentLocation }}</span>
+                      </div>
+                    </td>
+                    <td>{{ user.totalExprience }}</td>
+                    <td>hcl</td>
+                    <td><a
+                      mat-list-item
+                      (click)="openDialog2(jdpopupComponentRef, user)">
+                      <span class="nav-caption"><u>{{ user.jdId }}</u></span>
+                    </a></td>
+                    <td>{{ user.contactNo }}</td>
+                    <td>{{ user.emailId }}</td>
+                    <td>
+                      <div
+                        [ngSwitch]="
+                          user.candidateProfileStatus[0].screeningResult
+                        "
+                      >
+                        <span *ngSwitchCase="null">Screening Pending</span>
+                        <span *ngSwitchDefault>{{
+                          user.candidateProfileStatus[0].screeningResult
+                        }}</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div [ngSwitch]="user.candidateProfileStatus[0].remarks">
+                        <span *ngSwitchCase="null">
+                          <a
+                            mat-list-item
+                            (click)="
+                              openDialog(submitprofileComponentRef, user)
+                            "
+                          >
+                            <span class="nav-caption"
+                              ><u>Give Feedback</u></span
+                            >
+                          </a></span
+                        >
+                        <span *ngSwitchDefault>{{
+                          user.candidateProfileStatus[0].remarks
+                        }}</span>
+                      </div>
+                    </td>
+
+                    <td>Yes</td>
+                    <td>Yes</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Pending Screening</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>JD ID</th>
+                  <th>Candidate Name</th>
+                  <th>Candidate Primary Skill</th>
+                  <th>Candidate Total Exp</th>
+                  <th>Candidate Remarks</th>
+                  <th>Screener</th>
+                  <th>Change Screener</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of users">
+
+                    <td><a
+                      mat-list-item
+                      (click)="openDialogJdId(jdpopupComponentRef, user)">
+                      <span class="nav-caption"><u>{{user.jdId}}</u></span>
+                    </a></td>
+
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.primarySkills }}</td>
+                    <td>{{ user.totalExprience }}</td>
+
+                    <td>{{ user.candidateProfileStatus[0].remarks }}</td>
+                    <td>{{ user.refererName }}</td>
+                    <td>
+                      <div>
+                        <a
+                          mat-list-item
+                          (click)="openDialog(chngscrpopupComponentRef, user)"
+                        >
+                          <span class="nav-caption"><u>Yes</u></span>
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

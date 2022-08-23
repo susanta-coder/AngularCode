@@ -1,0 +1,59 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Add Clarification</h4>
+                        <p class="card-category">Complete Clarification</p>
+                    </div>
+                    <div class="card-body">
+                        <form #myForm="ngForm">
+                            <div class="col-md-6">
+                                <label class="posreadonly">JD Id:</label>
+                                <label class="posvalue">
+                                    <span class="nav-caption"
+                                      ><u>{{jdId }}</u></span>
+                                  </label>
+                              </div>
+                            <div class="row">
+                              <div class="col-md-12" >
+                                <mat-form-field class="example-full-width">
+                                    <input
+                                        matInput
+                                        placeholder="Subject"
+                                        name="message"
+                                        [(ngModel)]="message"
+                                        required
+                                    />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-12" >
+                              <mat-form-field class="example-full-width">
+                                  <input
+                                      matInput
+                                      placeholder="Query"
+                                      name="query"
+                                      [(ngModel)]="query"
+                                      required
+                                  />
+                              </mat-form-field>
+                          </div>
+                    </div>
+                            <button
+                                mat-raised-button
+                                type="submit"
+                                class="btn btn-danger pull-right"
+                                (click)="createQuery(myForm)"
+                            >
+                                Submit Clarification
+                            </button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

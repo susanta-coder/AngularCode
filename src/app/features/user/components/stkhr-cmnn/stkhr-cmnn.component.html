@@ -1,0 +1,85 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Stakeholder Queries and Responses</h4>
+                        <p class="card-category"> Here is a Query & Response Details</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        SI No
+                                    </th>
+                                    <th>
+                                        Query ID
+                                    </th>
+                                    <th>
+                                        Raised By
+                                    </th>
+                                    <th>
+                                        Stakeholder Type
+                                    </th>
+                                    <th>
+                                        Subject
+                                    </th>
+                                    <th> 
+                                        Query
+                                    </th>
+                                    <th>
+                                        Query Submitted On
+                                    </th>
+                                    <th>
+                                        Response
+                                    </th>
+                                    <th>
+                                        Query Responded On
+                                    </th>
+                                    <th>
+                                        Responded By
+                                    </th>
+                                    <th>
+                                        Wish to respond?
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let user of users">
+                                        <td>{{ user.id }}</td>
+                                        <td>{{ user.id }}</td>
+                                        <td>{{ user.assignToName }}</td>
+                                        <td>Vendor</td>
+                                        <td>{{ user.message }}</td>
+                                        <td>{{ user.query }}</td>
+                                        <td>{{ user.createdAt }}</td>
+                                        <td>{{ user.feedback }}</td>
+                                        <td>{{ user.updatedAt }}</td>
+                                        <td>{{user.responseByName}}</td>
+                                        <td>
+                                            <div [ngSwitch]="user.feedback">
+                                                <span *ngSwitchCase="null">
+                                            <a
+                                              mat-list-item
+                                              (click)="openDialog(resolvequeryComponentRef, user)"
+                                            >
+                                              <span class="nav-caption"><u>Yes</u></span>
+                                            </a></span
+                                            >
+                                            <span *ngSwitchDefault>  -
+                                            </span>
+                                          </div>
+                                          </td>
+                                      </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+ 

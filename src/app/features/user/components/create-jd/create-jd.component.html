@@ -1,0 +1,1510 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">JD Creation</h4>
+                      <p class="card-category">  Please mark the relevant checkboxes to choose the
+                        fields that needs to be evaluated and displayed
+                        during screening</p>
+                  </div>
+                  <div class="card-body">
+                    <form #myForm="ngForm">
+                          <div class="row">
+                              <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                <input matInput placeholder=" Job Complexity"  name="jdComplexity"
+                                list="jdComplexity"
+                                data-ng-model="jdComplexity"
+                                maxlength="50"
+                                pattern="[a-zA-Z\s]+"
+                                ng-init="jdComplexity=''"
+                                required=""
+                                class="ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-pattern ng-valid-maxlength"
+                                name="jdComplexity" [(ngModel)]="jdComplexity">
+                                <datalist
+                                          id="jdComplexity"
+                                          style="width: 146px"
+                                          required=""
+                                      >
+                                      <option value="" selected="">
+                                        --Select--
+                                    </option>
+                                      <option value="Simple">
+                                        Simple
+                                    </option>
+                                    <option value="Medium">
+                                        Medium
+                                    </option>
+                                    <option value="Complex">
+                                        Complex
+                                    </option>
+                                      </datalist>
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-7">
+                                  <mat-form-field class="example-full-width">
+                                    <input
+                                    matInput placeholder="Job Description"
+                                    name="description" [(ngModel)]="description"
+                                    data-ng-model="description"
+                                            ng-init="description=''"
+                                            required=""
+                                            maxlength="2000"
+                                            onkeypress="return alpha(event)"
+                                            ng-blur="repSpecChar()"
+                                            class="ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength"
+                                            >
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="SR No"
+                                    type="text"
+                                            data-ng-model="srNo"
+                                            ng-init="srNo=''"
+                                            maxlength="40"
+                                            required=""
+                                            ng-blur="validateSRNo()"
+                                            class="ng-pristine ng-untouched ng-valid ng-valid-maxlength"
+                                            name="srNo" [(ngModel)]="srNo">
+                                  </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-5">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Primary Skill"
+                                  type="text"
+                                  data-ng-model="primarySkills"
+                                  ng-init="primarySkills=''"
+                                  title="Must contain atleast one alphabet"
+                                  required=""
+                                  maxlength="100"
+                                  onkeypress="return alpha(event)"
+                                  class="ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength"
+                                  name="primarySkills" [(ngModel)]="primarySkills"
+                                  />
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Min Exp Required(Yrs)" type="text"
+                                  pattern="^\s*(?=.*[0-9])\d*(?:\.\d{1,2})?\s*$"
+                                  maxlength="5"
+                                  title="Accepts only positive numeric/decimal(2 place)value"
+                                  data-ng-model="minExperience"
+                                  ng-init="minExperience=''"
+                                  required=""
+                                  class="ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-pattern ng-valid-maxlength"
+                                  name="minExperience" [(ngModel)]="minExperience">
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Secondary Skills(comma separated)"  type="text"
+                                  data-ng-model="secondarySkills"
+                                  ng-init="secondarySkills=''"
+                                  title="Must contain atleast one alphabet"
+                                  maxlength="100"
+                                  onkeypress="return alpha(event)"
+                                  class="ng-pristine ng-untouched ng-valid ng-valid-maxlength"
+                                  name="secondarySkills" [(ngModel)]="secondarySkills">
+                                </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder=" Max Exp Required(Yrs)" type="text"
+                                  pattern="^\s*(?=.*[0-9])\d*(?:\.\d{1,2})?\s*$"
+                                  maxlength="5"
+                                  title="Accepts only positive numeric/decimal(2 place)value"
+                                  data-ng-model="maxExerience"
+                                  ng-init="maxExerience=''"
+                                  required=""
+                                  class="ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-pattern ng-valid-maxlength"
+                                  name="maxExerience" [(ngModel)]="maxExerience">
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder=" Good to have(comma separated)" type="text"
+                                  data-ng-model="goodToHave"
+                                  ng-init="goodToHave=''"
+                                  title="Must contain atleast one alphabet"
+                                  maxlength="100"
+                                  onkeypress="return alpha(event)"
+                                  class="ng-pristine ng-untouched ng-valid ng-valid-maxlength"
+                                  name="goodToHave" [(ngModel)]="goodToHave">
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-5">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder=" Location"  name="location"
+                                  list="location"
+                                  data-ng-model="location"
+                                  maxlength="50"
+                                  pattern="[a-zA-Z\s]+"
+                                  ng-init="location=''"
+                                  required=""
+                                  class="ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-pattern ng-valid-maxlength"
+                                  name="location" [(ngModel)]="location">
+                                  <datalist
+                                            id="location"
+                                            style="width: 146px"
+                                            required=""
+                                        >
+                                            <option value="" selected="">
+                                                --Select--
+                                            </option>
+
+                                            <option value="noida">noida</option>
+                                        </datalist>
+                                </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-4">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Any Other constraints(comma separated)?"  type="text"
+                                data-ng-model="constraints"
+                                ng-init="constraints=''"
+                                title="Must contain atleast one alphabet"
+                                maxlength="100"
+                                onkeypress="return alpha(event)"
+                                class="ng-pristine ng-untouched ng-valid ng-valid-maxlength"
+                                name="constraints" [(ngModel)]="constraints">
+                              </mat-form-field>
+                            </div>
+                            <div class="col-md-4">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder=" Max Yly CTC(Lacs, Rs)" type="text"
+                                pattern="[0-9]+([\.][0-9]+)?"
+                                maxlength="5"
+                                step="any"
+                                data-ng-model="maxCTC"
+                                title="Accepts only numeric value with decimal"
+                                ng-init="maxCTC=''"
+                                class="ng-pristine ng-untouched ng-valid ng-valid-pattern ng-valid-maxlength"
+                                name="maxCtcYal" [(ngModel)]="maxCtcYal">
+                              </mat-form-field>
+                            </div>
+                            <div class="col-md-4">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Designation" type="text"
+                                data-ng-model="designation"
+                                ng-init="designation=''"
+                                title="Must contain atleast one alphabet"
+                                maxlength="100"
+                                onkeypress="return alpha(event)"
+                                required=""
+                                class="ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength"
+                                name="designation" [(ngModel)]="designation">
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-4">
+                              <label>Is Shift involved?</label>
+                              <div class="row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input
+                                                type="radio"
+                                                data-ng-model="isShiftInvolved"
+                                                value="Y"
+                                                class="ng-pristine ng-untouched ng-valid ng-valid-required"
+                                                name="isShiftInvolved" [(ngModel)]="isShiftInvolved"
+                                            />Yes&nbsp;
+                                            <input
+                                                type="radio"
+                                                data-ng-model="isShift"
+                                                name="isShift"
+                                                value="N"
+                                                class="ng-pristine ng-untouched ng-valid"
+                                                name="isShiftInvolved" [(ngModel)]="isShiftInvolved"
+                                            />No
+                                            </div>
+
+                            </div>
+                            <div class="col-md-4">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Qualification" type="text"
+                                data-ng-model="qualification"
+                                ng-init="qualification=''"
+                                maxlength="100"
+                                class="ng-pristine ng-untouched ng-valid ng-valid-maxlength"
+                                name="qualification" [(ngModel)]="qualification">
+                              </mat-form-field>
+                            </div>
+                            <div class="col-md-4">
+                              <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Skill Category"
+                              list="skillCategory"
+                              data-ng-model="skillCategory"
+                              ng-init="skillCategory=''"
+                              required=""
+                              class="ng-pristine ng-untouched ng-invalid ng-invalid-required"
+                              name="skillCategory" [(ngModel)]="skillCategory">
+                              <datalist
+                                        id="skillCategory"
+                                        style="width: 146px"
+                                        required=""
+                                    >
+                                    <option value="">--Select--</option>
+
+                                    <option value=".Net">.Net</option>
+
+                                    <option value=".Net Developer">
+                                        .Net Developer
+                                    </option>
+
+                                    <option value=".NET/C#/WebAPI">
+                                        .NET/C#/WebAPI
+                                    </option>
+
+                                    <option
+                                        value="Adobe Campaign Administrator"
+                                    >
+                                        Adobe Campaign Administrator
+                                    </option>
+
+                                    <option
+                                        value="Adobe Campaign Architect, TL"
+                                    >
+                                        Adobe Campaign Architect, TL
+                                    </option>
+
+                                    <option value="Adobe Campaign BA">
+                                        Adobe Campaign BA
+                                    </option>
+
+                                    <option
+                                        value="Adobe Campaign Sn Developer"
+                                    >
+                                        Adobe Campaign Sn Developer
+                                    </option>
+
+                                    <option value="AEM Developer">
+                                        AEM Developer
+                                    </option>
+
+                                    <option value="AGILE COACH">
+                                        AGILE COACH
+                                    </option>
+
+                                    <option value="analyst">
+                                        analyst
+                                    </option>
+
+                                    <option value="Android Developer">
+                                        Android Developer
+                                    </option>
+
+                                    <option value="Angular">
+                                        Angular
+                                    </option>
+
+                                    <option value="Angular 2">
+                                        Angular 2
+                                    </option>
+
+                                    <option value="API LEAD (UOB)">
+                                        API LEAD (UOB)
+                                    </option>
+
+                                    <option value="API Testing">
+                                        API Testing
+                                    </option>
+
+                                    <option value="API_Java">
+                                        API_Java
+                                    </option>
+
+                                    <option value="application support">
+                                        application support
+                                    </option>
+
+                                    <option value="Automation Tester">
+                                        Automation Tester
+                                    </option>
+
+                                    <option value="automation testing">
+                                        automation testing
+                                    </option>
+
+                                    <option value="AWS data modeller">
+                                        AWS data modeller
+                                    </option>
+
+                                    <option
+                                        value="BA - INDI/INDI/2020/1367238"
+                                    >
+                                        BA - INDI/INDI/2020/1367238
+                                    </option>
+
+                                    <option value="BA for Retail">
+                                        BA for Retail
+                                    </option>
+
+                                    <option value="BA Technical">
+                                        BA Technical
+                                    </option>
+
+                                    <option
+                                        value="Big Data Engineer-Soc Gen"
+                                    >
+                                        Big Data Engineer-Soc Gen
+                                    </option>
+
+                                    <option value="bigdata">
+                                        bigdata
+                                    </option>
+
+                                    <option value="Bigdata/Devops">
+                                        Bigdata/Devops
+                                    </option>
+
+                                    <option value="bigdata/Hadoop">
+                                        bigdata/Hadoop
+                                    </option>
+
+                                    <option value="Blaze Developer">
+                                        Blaze Developer
+                                    </option>
+
+                                    <option value="Blockchain">
+                                        Blockchain
+                                    </option>
+
+                                    <option value="BPM">BPM</option>
+
+                                    <option value="Business Analyst">
+                                        Business Analyst
+                                    </option>
+
+                                    <option
+                                        value="Business Analyst, 1358256, RBS"
+                                    >
+                                        Business Analyst, 1358256, RBS
+                                    </option>
+
+                                    <option
+                                        value="Business Analyst- Retail Bank"
+                                    >
+                                        Business Analyst- Retail Bank
+                                    </option>
+
+                                    <option value="C# .Net">
+                                        C# .Net
+                                    </option>
+
+                                    <option
+                                        value="C# Automation testing"
+                                    >
+                                        C# Automation testing
+                                    </option>
+
+                                    <option value="C#.Net">
+                                        C#.Net
+                                    </option>
+
+                                    <option value="C++">C++</option>
+
+                                    <option value="Cloud">Cloud</option>
+
+                                    <option
+                                        value="COBOL, JCL, DB2 - Lead Designe"
+                                    >
+                                        COBOL, JCL, DB2 - Lead Designe
+                                    </option>
+
+                                    <option
+                                        value="COBOL, JCL, DB2 - Lead Develop"
+                                    >
+                                        COBOL, JCL, DB2 - Lead Develop
+                                    </option>
+
+                                    <option value="Cognos Developer">
+                                        Cognos Developer
+                                    </option>
+
+                                    <option value="Core Java">
+                                        Core Java
+                                    </option>
+
+                                    <option value="Core.net Developer">
+                                        Core.net Developer
+                                    </option>
+
+                                    <option value="DAta 1367258">
+                                        DAta 1367258
+                                    </option>
+
+                                    <option
+                                        value="Data Analyst ( MS SQL, SQL, FS"
+                                    >
+                                        Data Analyst ( MS SQL, SQL, FS
+                                    </option>
+
+                                    <option
+                                        value="Data engineers/Modellers"
+                                    >
+                                        Data engineers/Modellers
+                                    </option>
+
+                                    <option value="data science">
+                                        data science
+                                    </option>
+
+                                    <option
+                                        value="Data Virtulisation-Data Engg"
+                                    >
+                                        Data Virtulisation-Data Engg
+                                    </option>
+
+                                    <option
+                                        value="Data3Sixty, Lavastorm, Informa"
+                                    >
+                                        Data3Sixty, Lavastorm, Informa
+                                    </option>
+
+                                    <option value="Datastage">
+                                        Datastage
+                                    </option>
+
+                                    <option value="Development">
+                                        Development
+                                    </option>
+
+                                    <option value="DevOps">
+                                        DevOps
+                                    </option>
+
+                                    <option
+                                        value="Devops -INDI/INDI/2020/1367216"
+                                    >
+                                        Devops -INDI/INDI/2020/1367216
+                                    </option>
+
+                                    <option value="Devops 1358300 RBS">
+                                        Devops 1358300 RBS
+                                    </option>
+
+                                    <option value="Devops Admin">
+                                        Devops Admin
+                                    </option>
+
+                                    <option value="DevOps Cloud">
+                                        DevOps Cloud
+                                    </option>
+
+                                    <option value="Devops developer">
+                                        Devops developer
+                                    </option>
+
+                                    <option value="Devops Engineer">
+                                        Devops Engineer
+                                    </option>
+
+                                    <option value="DevOps Intermediate">
+                                        DevOps Intermediate
+                                    </option>
+
+                                    <option
+                                        value="Devops Senior - INDI/INDI/2020"
+                                    >
+                                        Devops Senior - INDI/INDI/2020
+                                    </option>
+
+                                    <option value="dotnet">
+                                        dotnet
+                                    </option>
+
+                                    <option value="Elastic Stack">
+                                        Elastic Stack
+                                    </option>
+
+                                    <option value="Embedded Developer">
+                                        Embedded Developer
+                                    </option>
+
+                                    <option
+                                        value="Embedded Unit Testing"
+                                    >
+                                        Embedded Unit Testing
+                                    </option>
+
+                                    <option
+                                        value="ETL Automation Test Analyst"
+                                    >
+                                        ETL Automation Test Analyst
+                                    </option>
+
+                                    <option
+                                        value="ETL Automation Testing"
+                                    >
+                                        ETL Automation Testing
+                                    </option>
+
+                                    <option value="ETL Developer">
+                                        ETL Developer
+                                    </option>
+
+                                    <option value="ETL testing">
+                                        ETL testing
+                                    </option>
+
+                                    <option
+                                        value="Falcon Java Developer"
+                                    >
+                                        Falcon Java Developer
+                                    </option>
+
+                                    <option value="frontend_ionic">
+                                        frontend_ionic
+                                    </option>
+
+                                    <option
+                                        value="full stack .net with react"
+                                    >
+                                        full stack .net with react
+                                    </option>
+
+                                    <option
+                                        value="full stack .net with react/Ang"
+                                    >
+                                        full stack .net with react/Ang
+                                    </option>
+
+                                    <option value="fullstacj_ionic">
+                                        fullstacj_ionic
+                                    </option>
+
+                                    <option
+                                        value="Functional Analyst-Business An"
+                                    >
+                                        Functional Analyst-Business An
+                                    </option>
+
+                                    <option
+                                        value="Functional BA with Payment Exp"
+                                    >
+                                        Functional BA with Payment Exp
+                                    </option>
+
+                                    <option value="Functional Testing">
+                                        Functional Testing
+                                    </option>
+
+                                    <option value="GCP Engineer">
+                                        GCP Engineer
+                                    </option>
+
+                                    <option
+                                        value="Generic Release LEad/Technical"
+                                    >
+                                        Generic Release LEad/Technical
+                                    </option>
+
+                                    <option
+                                        value="GPP Support Engineer"
+                                    >
+                                        GPP Support Engineer
+                                    </option>
+
+                                    <option value="GPP/ IOS Tester">
+                                        GPP/ IOS Tester
+                                    </option>
+
+                                    <option value="Hadoop">
+                                        Hadoop
+                                    </option>
+
+                                    <option
+                                        value="IBM Datastage Developer"
+                                    >
+                                        IBM Datastage Developer
+                                    </option>
+
+                                    <option value="Informatica">
+                                        Informatica
+                                    </option>
+
+                                    <option value="IOS">IOS</option>
+
+                                    <option value="IOS Developer">
+                                        IOS Developer
+                                    </option>
+
+                                    <option
+                                        value="IOS Testing with GPP"
+                                    >
+                                        IOS Testing with GPP
+                                    </option>
+
+                                    <option value="itil">itil</option>
+
+                                    <option value="Java">Java</option>
+
+                                    <option value="Java - 1293490">
+                                        Java - 1293490
+                                    </option>
+
+                                    <option
+                                        value="Java - INDI/INDI/2020/1367220"
+                                    >
+                                        Java - INDI/INDI/2020/1367220
+                                    </option>
+
+                                    <option
+                                        value="Java - INDI/INDI/2020/1367224"
+                                    >
+                                        Java - INDI/INDI/2020/1367224
+                                    </option>
+
+                                    <option
+                                        value="Java - INDI/INDI/2020/1367231"
+                                    >
+                                        Java - INDI/INDI/2020/1367231
+                                    </option>
+
+                                    <option
+                                        value="Java - INDI/INDI/2020/1367243"
+                                    >
+                                        Java - INDI/INDI/2020/1367243
+                                    </option>
+
+                                    <option
+                                        value="Java - INDI/INDI/2020/1374794"
+                                    >
+                                        Java - INDI/INDI/2020/1374794
+                                    </option>
+
+                                    <option
+                                        value="Java -INDI/INDI/2020/1367134"
+                                    >
+                                        Java -INDI/INDI/2020/1367134
+                                    </option>
+
+                                    <option value="Java -JR-103505">
+                                        Java -JR-103505
+                                    </option>
+
+                                    <option value="Java -springboot">
+                                        Java -springboot
+                                    </option>
+
+                                    <option value="Java 1323862">
+                                        Java 1323862
+                                    </option>
+
+                                    <option value="Java 1335146">
+                                        Java 1335146
+                                    </option>
+
+                                    <option value="Java 1335323">
+                                        Java 1335323
+                                    </option>
+
+                                    <option value="Java 1351629">
+                                        Java 1351629
+                                    </option>
+
+                                    <option value="Java 1351635">
+                                        Java 1351635
+                                    </option>
+
+                                    <option value="Java Architect">
+                                        Java Architect
+                                    </option>
+
+                                    <option
+                                        value="Java Automation,INDI/INDI/2020"
+                                    >
+                                        Java Automation,INDI/INDI/2020
+                                    </option>
+
+                                    <option
+                                        value="Java backend - Walmart"
+                                    >
+                                        Java backend - Walmart
+                                    </option>
+
+                                    <option
+                                        value="Java Backend-JD02walmart"
+                                    >
+                                        Java Backend-JD02walmart
+                                    </option>
+
+                                    <option
+                                        value="Java Backend-JD04walmart"
+                                    >
+                                        Java Backend-JD04walmart
+                                    </option>
+
+                                    <option
+                                        value="Java Backend-Kafka-JD03walmart"
+                                    >
+                                        Java Backend-Kafka-JD03walmart
+                                    </option>
+
+                                    <option value="Java Developer">
+                                        Java Developer
+                                    </option>
+
+                                    <option
+                                        value="Java Developer with JSF"
+                                    >
+                                        Java Developer with JSF
+                                    </option>
+
+                                    <option
+                                        value="Java developer with SQL"
+                                    >
+                                        Java developer with SQL
+                                    </option>
+
+                                    <option value="Java Full Stack">
+                                        Java Full Stack
+                                    </option>
+
+                                    <option
+                                        value="Java Fullstack developer"
+                                    >
+                                        Java Fullstack developer
+                                    </option>
+
+                                    <option value="Java junior">
+                                        Java junior
+                                    </option>
+
+                                    <option value="java microservices">
+                                        java microservices
+                                    </option>
+
+                                    <option value="Java SCB">
+                                        Java SCB
+                                    </option>
+
+                                    <option value="Java Senior">
+                                        Java Senior
+                                    </option>
+
+                                    <option value="Java Stack">
+                                        Java Stack
+                                    </option>
+
+                                    <option value="Java with SQL">
+                                        Java with SQL
+                                    </option>
+
+
+                                    <option
+                                        value="Java, INDI/INDI/2020/1367155"
+                                    >
+                                        Java, INDI/INDI/2020/1367155
+                                    </option>
+
+                                    <option value="Java.Angular">
+                                        Java.Angular
+                                    </option>
+
+                                    <option value="Java/J2EE">
+                                        Java/J2EE
+                                    </option>
+
+                                    <option value="Java_1293449">
+                                        Java_1293449
+                                    </option>
+
+                                    <option value="Java_1323854">
+                                        Java_1323854
+                                    </option>
+
+                                    <option value="Java_1323862">
+                                        Java_1323862
+                                    </option>
+
+                                    <option value="Java_1323865">
+                                        Java_1323865
+                                    </option>
+
+                                    <option value="Java_1323868">
+                                        Java_1323868
+                                    </option>
+
+                                    <option value="Java_1332743">
+                                        Java_1332743
+                                    </option>
+
+                                    <option value="Java_1335146">
+                                        Java_1335146
+                                    </option>
+
+                                    <option value="Java_1335323">
+                                        Java_1335323
+                                    </option>
+
+                                    <option value="Java_1335335">
+                                        Java_1335335
+                                    </option>
+
+                                    <option value="Java_1343041">
+                                        Java_1343041
+                                    </option>
+
+                                    <option value="Java_1351629">
+                                        Java_1351629
+                                    </option>
+
+                                    <option value="Java_1351635">
+                                        Java_1351635
+                                    </option>
+
+                                    <option value="Kafka Admin">
+                                        Kafka Admin
+                                    </option>
+
+                                    <option value="kotlin">
+                                        kotlin
+                                    </option>
+
+                                    <option value="L1support">
+                                        L1support
+                                    </option>
+
+                                    <option value="L3 Engineer">
+                                        L3 Engineer
+                                    </option>
+
+                                    <option value="Machine Learning">
+                                        Machine Learning
+                                    </option>
+
+                                    <option value="mainframe">
+                                        mainframe
+                                    </option>
+
+                                    <option value="Mainframe 1351639">
+                                        Mainframe 1351639
+                                    </option>
+
+                                    <option value="Manual Testing">
+                                        Manual Testing
+                                    </option>
+
+                                    <option value="micro services">
+                                        micro services
+                                    </option>
+
+                                    <option value="microstrategy">
+                                        microstrategy
+                                    </option>
+
+                                    <option value="mobility tester">
+                                        mobility tester
+                                    </option>
+
+                                    <option value="net mvc">
+                                        net mvc
+                                    </option>
+
+                                    <option value="Netbackup Storage">
+                                        Netbackup Storage
+                                    </option>
+
+                                    <option value="Network Admin">
+                                        Network Admin
+                                    </option>
+
+                                    <option value="Network Engineer">
+                                        Network Engineer
+                                    </option>
+
+                                    <option value="OFFICE 365">
+                                        OFFICE 365
+                                    </option>
+
+                                    <option value="Oracle">
+                                        Oracle
+                                    </option>
+
+                                    <option value="P&amp; V Tester">
+                                        P&amp; V Tester
+                                    </option>
+
+                                    <option value="PaaS Engineer">
+                                        PaaS Engineer
+                                    </option>
+
+                                    <option value="Pass Engineer">
+                                        Pass Engineer
+                                    </option>
+
+                                    <option value="Payment BA">
+                                        Payment BA
+                                    </option>
+
+                                    <option value="Payment Tester">
+                                        Payment Tester
+                                    </option>
+
+                                    <option value="Peaga">Peaga</option>
+
+                                    <option value="pega">pega</option>
+
+                                    <option value="Pega Developer">
+                                        Pega Developer
+                                    </option>
+
+                                    <option value="Peoplesoft Support">
+                                        Peoplesoft Support
+                                    </option>
+
+                                    <option value="Performance Testing">
+                                        Performance Testing
+                                    </option>
+
+                                    <option value="PL/SQL">
+                                        PL/SQL
+                                    </option>
+
+                                    <option value="Postgres - For IaaS">
+                                        Postgres - For IaaS
+                                    </option>
+
+                                    <option
+                                        value="PostgreSQL Developer"
+                                    >
+                                        PostgreSQL Developer
+                                    </option>
+
+                                    <option value="Power BI">
+                                        Power BI
+                                    </option>
+
+                                    <option value="Powershell">
+                                        Powershell
+                                    </option>
+
+                                    <option value="Product Owner">
+                                        Product Owner
+                                    </option>
+
+                                    <option value="Project Management">
+                                        Project Management
+                                    </option>
+
+                                    <option value="Pune">Pune</option>
+
+                                    <option value="Python">
+                                        Python
+                                    </option>
+
+                                    <option value="Python Developer">
+                                        Python Developer
+                                    </option>
+
+                                    <option value="QA">QA</option>
+
+                                    <option value="QA Automation">
+                                        QA Automation
+                                    </option>
+
+                                    <option value="QlikSense/Qlik View">
+                                        QlikSense/Qlik View
+                                    </option>
+
+                                    <option value="R Developer">
+                                        R Developer
+                                    </option>
+
+                                    <option value="React">React</option>
+
+                                    <option value="React JS">
+                                        React JS
+                                    </option>
+
+                                    <option
+                                        value="Release Lead with Cloud migrat"
+                                    >
+                                        Release Lead with Cloud migrat
+                                    </option>
+
+                                    <option
+                                        value="Release Lead with Data / Cloud"
+                                    >
+                                        Release Lead with Data / Cloud
+                                    </option>
+
+                                    <option
+                                        value="RNTBCI_DevOps_1381009"
+                                    >
+                                        RNTBCI_DevOps_1381009
+                                    </option>
+
+                                    <option value="RPA">RPA</option>
+
+                                    <option value="SAP ABAP">
+                                        SAP ABAP
+                                    </option>
+
+                                    <option value="SAP ABAP 1323893">
+                                        SAP ABAP 1323893
+                                    </option>
+
+                                    <option value="SAP APM">
+                                        SAP APM
+                                    </option>
+
+                                    <option value="SAP BASIS">
+                                        SAP BASIS
+                                    </option>
+
+                                    <option value="SAP CRM with ABAP">
+                                        SAP CRM with ABAP
+                                    </option>
+
+                                    <option value="SAP EWM">
+                                        SAP EWM
+                                    </option>
+
+                                    <option value="SAP Fieldglass">
+                                        SAP Fieldglass
+                                    </option>
+
+                                    <option value="SAP Testing">
+                                        SAP Testing
+                                    </option>
+
+                                    <option value="SAP WM 1294026">
+                                        SAP WM 1294026
+                                    </option>
+
+                                    <option value="SAS">SAS</option>
+
+                                    <option value="SAS Admin">
+                                        SAS Admin
+                                    </option>
+
+                                    <option value="SAS Engineer">
+                                        SAS Engineer
+                                    </option>
+
+                                    <option
+                                        value="SAS Tech BA- Migration"
+                                    >
+                                        SAS Tech BA- Migration
+                                    </option>
+
+                                    <option value="scala,Spark">
+                                        scala,Spark
+                                    </option>
+
+                                    <option value="SCB Skills">
+                                        SCB Skills
+                                    </option>
+
+                                    <option value="SCB_AWS_1374799">
+                                        SCB_AWS_1374799
+                                    </option>
+
+                                    <option value="SCB_SA_1376126">
+                                        SCB_SA_1376126
+                                    </option>
+
+                                    <option value="SCB_SCRUM_1374796">
+                                        SCB_SCRUM_1374796
+                                    </option>
+
+                                    <option value="SCCM">SCCM</option>
+
+                                    <option value="scram">scram</option>
+
+                                    <option value="Scrum Master">
+                                        Scrum Master
+                                    </option>
+
+                                    <option
+                                        value="Scrum Master, Banking domain,"
+                                    >
+                                        Scrum Master, Banking domain,
+                                    </option>
+
+                                    <option
+                                        value="Scrum Master, Banking domain, agile processes, experience in development"
+                                    >
+                                        Scrum Master, Banking domain,
+                                        agile processes, experience in
+                                        development
+                                    </option>
+
+                                    <option value="SDET">SDET</option>
+
+                                    <option value="Selenium">
+                                        Selenium
+                                    </option>
+
+                                    <option
+                                        value="Senior BA - INDI/INDI/2020/136"
+                                    >
+                                        Senior BA - INDI/INDI/2020/136
+                                    </option>
+
+                                    <option
+                                        value="Senior Java Developer"
+                                    >
+                                        Senior Java Developer
+                                    </option>
+
+                                    <option value="Senior Scrum Master">
+                                        Senior Scrum Master
+                                    </option>
+
+                                    <option value="service now">
+                                        service now
+                                    </option>
+
+                                    <option value="Servicenow Testing">
+                                        Servicenow Testing
+                                    </option>
+
+                                    <option value="Sharepoint">
+                                        Sharepoint
+                                    </option>
+
+                                    <option value="snaplogic">
+                                        snaplogic
+                                    </option>
+
+                                    <option value="snowflake">
+                                        snowflake
+                                    </option>
+
+                                    <option value="Software Enginer">
+                                        Software Enginer
+                                    </option>
+
+                                    <option
+                                        value="solution manager_app sec"
+                                    >
+                                        solution manager_app sec
+                                    </option>
+
+                                    <option value="Spark">Spark</option>
+
+                                    <option value="SQL">SQL</option>
+
+                                    <option value="SQL Developer">
+                                        SQL Developer
+                                    </option>
+
+                                    <option value="Sr Java SCB">
+                                        Sr Java SCB
+                                    </option>
+
+                                    <option
+                                        value="Sr Sys Analyst / Sr Software E"
+                                    >
+                                        Sr Sys Analyst / Sr Software E
+                                    </option>
+
+                                    <option value="SRE Enginer">
+                                        SRE Enginer
+                                    </option>
+
+                                    <option value="SSIS Developer">
+                                        SSIS Developer
+                                    </option>
+
+                                    <option value="System Analyst">
+                                        System Analyst
+                                    </option>
+
+                                    <option
+                                        value="Tableau Developer with Powerbi"
+                                    >
+                                        Tableau Developer with Powerbi
+                                    </option>
+
+                                    <option value="Talend Developer">
+                                        Talend Developer
+                                    </option>
+
+                                    <option
+                                        value="Technical Business Analysis"
+                                    >
+                                        Technical Business Analysis
+                                    </option>
+
+                                    <option
+                                        value="technical project manager"
+                                    >
+                                        technical project manager
+                                    </option>
+
+                                    <option
+                                        value="Technical Service Engineer"
+                                    >
+                                        Technical Service Engineer
+                                    </option>
+
+                                    <option value="Technical Writer">
+                                        Technical Writer
+                                    </option>
+
+                                    <option value="Teradata">
+                                        Teradata
+                                    </option>
+
+                                    <option value="Teradata Developer">
+                                        Teradata Developer
+                                    </option>
+
+                                    <option value="Testing">
+                                        Testing
+                                    </option>
+
+                                    <option
+                                        value="Tosca Automation Testing"
+                                    >
+                                        Tosca Automation Testing
+                                    </option>
+
+                                    <option value="Typescript">
+                                        Typescript
+                                    </option>
+
+                                    <option value="UI designer">
+                                        UI designer
+                                    </option>
+
+                                    <option value="UI Developer">
+                                        UI Developer
+                                    </option>
+
+                                    <option value="Unix Administrator">
+                                        Unix Administrator
+                                    </option>
+
+                                    <option
+                                        value="Unix L3 Support Engineer"
+                                    >
+                                        Unix L3 Support Engineer
+                                    </option>
+
+                                    <option value="UX">UX</option>
+
+                                    <option
+                                        value="UX - INDI/INDI/2020/1367189"
+                                    >
+                                        UX - INDI/INDI/2020/1367189
+                                    </option>
+
+                                    <option
+                                        value="UX -INDI/INDI/2020/1367200"
+                                    >
+                                        UX -INDI/INDI/2020/1367200
+                                    </option>
+
+                                    <option value="VC">VC</option>
+
+                                    <option value="Web Method">
+                                        Web Method
+                                    </option>
+
+                                    <option
+                                        value="Web Method-INDI/INDI/2020/1367"
+                                    >
+                                        Web Method-INDI/INDI/2020/1367
+                                    </option>
+
+                                    <option
+                                        value="Windows Virtual Desktop"
+                                    >
+                                        Windows Virtual Desktop
+                                    </option>
+
+                                    <option value="Xpression Designer">
+                                        Xpression Designer
+                                    </option>
+                                    </datalist>
+                                  </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-3">
+                              <label class="color-add">Type Of Hire:</label>
+                              <div class="row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <input
+                              type="radio"
+                              data-ng-model="hiringType"
+                              name="hiringType"
+                              value="P"
+                              ng-change="checkEmpTyp()"
+                              class="ng-pristine ng-untouched ng-valid"
+                              name="hiringType" [(ngModel)]="hiringType"
+                          />&nbsp;Permanent&nbsp;
+                          <input
+                              type="radio"
+                              data-ng-model="hiringType"
+                              name="hiringType"
+                              value="C"
+                              ng-change="checkEmpTyp()"
+                              class="ng-pristine ng-untouched ng-valid"
+                              name="hiringType" [(ngModel)]="hiringType"
+                          />&nbsp;Contractual
+                        </div>
+
+                            </div>
+                            <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Contract
+                                Period(Months)"  type="text"
+                                pattern="^\d{1,3}$"
+                                maxlength="3"
+                                title="Accepts only positive numeric value"
+                                data-ng-model="contractPD"
+                                ng-init="contractPD=''"
+                                class="ng-pristine ng-untouched ng-valid ng-valid-pattern ng-valid-maxlength"
+                                name="contractPeriod" [(ngModel)]="contractPeriod">
+                              </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="No of Positions"  type="text"
+                                pattern="^\d{1,3}$"
+                                maxlength="3"
+                                data-ng-model="positions"
+                                title="Accepts only positive numeric value"
+                                ng-init="positions=''"
+                                required=""
+                                class="ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-pattern ng-valid-maxlength"
+                                name="positions" [(ngModel)]="positions">
+                              </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Notice Period(Days)"  type="text"
+                                pattern="^\d{1,3}$"
+                                maxlength="3"
+                                data-ng-model="noticePd"
+                                title="Accepts only positive numeric value"
+                                ng-init="noticePd=''"
+                                class="ng-pristine ng-untouched ng-valid ng-valid-pattern ng-valid-maxlength"
+                                name="noticePeriod" [(ngModel)]="noticePeriod">
+                              </mat-form-field>
+                            </div>
+
+                            </div>
+                            <div class="row">
+                              <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                <input matInput placeholder="JD Created For"   list="createdFor"
+                                data-ng-model="createdFor"
+                                ng-init="createdFor=''"
+                                required=""
+                                class="ng-pristine ng-untouched ng-invalid ng-invalid-required"
+                                name="createdFor" [(ngModel)]="createdFor"
+                            />
+                            <datalist
+                                id="createdFor"
+                                style="width: 146px"
+                                required=""
+                            >
+                                <option value="" selected="">
+                                    --Select--
+                                </option>
+
+                                <option value="hcl">hcl</option>
+                            </datalist>
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Profile SLA Final Date"  type="text"
+                                  maxlength="10"
+                                  data-ng-model="slaFinalDate"
+                                  ng-init="slaFinalDate=''"
+                                  readonly="false"
+                                            title="It accepts date in dd-mm-yyyy format"
+                                            class="ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength hasDatepicker"
+                                  name="slaFinalDate" [(ngModel)]="slaFinalDate">
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+
+                                <label>Screening Feedback Type:</label>
+                                <div class="row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  <input
+                                  type="radio"
+                                  data-ng-model="feedBkTyp"
+                                  value="D"
+                                  class="ng-pristine ng-untouched ng-valid"
+
+                                  name="feedbackType" [(ngModel)]="feedbackType"
+
+                              />&nbsp;Detailed Feedback&nbsp;&nbsp;&nbsp;&nbsp;
+                              <input
+                                  type="radio"
+                                  data-ng-model="feedBkTyp"
+                                  value="S"
+                                  class="ng-pristine ng-untouched ng-valid"
+                                  name="feedbackType" [(ngModel)]="feedbackType"
+                              />&nbsp;Summary Feedback
+                              </div>
+                          </div>
+                              </div>
+                              <div class="row">
+                              <div class="col-md-4">
+                                <label>Upload JD Document:</label>
+                                  <input
+                                  type="file"
+                                  id="fileName"
+                                  name="fileName"
+                                  ng-disabled="flag"
+                                  accept="application/pdf,application/msword,
+                                          application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                                          (change)="onChange($event)"
+
+                              />
+
+                              </div>
+                              <div class="col-md-6">
+
+                                  <label>Publish JD To:</label>
+                                  <div class="row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  <select
+                                      data-ng-model="publishTo"
+                                      multiple=""
+                                      required=""
+                                      class="ng-pristine ng-untouched ng-valid ng-valid-required"
+                                      name="publishTo" [(ngModel)]="publishTo"
+                                      >
+                                      <!-- <option value="A">All Vendors</option> -->
+                                      <option *ngFor="let user of users">
+                                        {{user.userName}}
+                                        </option>
+                                      </select
+                                  >&nbsp;
+                                  </div>
+
+                              </div>
+                            </div>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" data-ng-click="goHome()"
+                            ng-disabled="flag">Cancel</button>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right"  ng-disabled="flag"
+                          (click)="createJd(myForm)">Submit</button>
+
+
+                          <div class="clearfix"></div>
+
+                      </form>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>
+</div>

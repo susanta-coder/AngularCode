@@ -1,0 +1,49 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Notice Period Details</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>SL No</th>
+                  <th>JD ID</th>
+                  <th>Evaluation1 Select</th>
+                  <th>Evaluation1 Reject</th>
+                  <th>Final Select</th>
+                  <th>Reject</th>
+
+              </thead>
+                <tbody>
+                   <tr *ngFor="let user of users">
+                     <td>{{ user.id }}</td>
+                     <td><a
+                      mat-list-item
+                      (click)="openDialog(jdpopupComponentRef, user)">
+                      <span class="nav-caption"><u>{{user.id}}</u></span>
+                    </a></td>
+                    <td>{{ user.screeningSelectCount }}</td>
+                    <td>{{ user.screeningRejectCount }}</td>
+                    <td>{{ user.screeningSelectCount }}</td>
+
+                    <td>
+                      <a (click)="getProfilesBasedRejectHyperLink()">
+                        <font color="black">
+                          <u>{{ user.screeningSelectCount }}</u></font></a>
+                    </td>
+
+                   </tr>
+                   </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

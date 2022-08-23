@@ -1,0 +1,119 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">All Open JDs</h4>
+            <p class="card-category">Here we can see all JDs details</p>
+          </div>
+          <app-progress-bar *ngIf="isLoading"></app-progress-bar>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>SLNo</th>
+                  <th>JD ID</th>
+                  <th>Client</th>
+                  <th>JD Status</th>
+                  <th>JOB Description</th>
+                  <th>Primary Skills</th>
+                  <th>Secondary Skills</th>
+                  <th>Location</th>
+                  <th>Min Exp(Yrs)</th>
+                  <th>Max Exp(Yrs)</th>
+                  <th>#Open Positions</th>
+                  <th>Profile Count</th>
+                  <div
+                  class="col-md-12"
+                  *ngIf="role != 2"
+              >
+                  <th>Submit Profile</th>
+                  </div>
+                  <th>Failed Submitted Profile</th>
+                  <div
+                  class="col-md-12"
+                  *ngIf="role != 2"
+              >
+                  <th>Need Clarification?</th>
+                  </div>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of users">
+                    <td>{{ user.srNo }}</td>
+                    <td> <a mat-list-item (click)="openDialog2(jdpopupComponentRef, user)" >
+                      <span class="nav-caption"><u>{{user.id}}</u></span>
+                  </a></td>
+                    <td>HCL</td>
+                    <td>{{ user.statusId }}</td>
+                    <td>
+                      <div [ngSwitch]="user.description">
+                        <span *ngSwitchCase="null">NA</span>
+                        <span *ngSwitchDefault>{{ user.description }}</span>
+                      </div>
+                    </td>
+                    <td>{{ user.primarySkills }}</td>
+                    <td>{{ user.secondarySkills }}</td>
+                    <td>
+                      <div [ngSwitch]="user.location">
+                        <span *ngSwitchCase="null">NA</span>
+                        <span *ngSwitchDefault>{{ user.location }}</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div [ngSwitch]="user.minExperience">
+                        <span *ngSwitchCase="null">NA</span>
+                        <span *ngSwitchDefault>{{ user.minExperience }}</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div [ngSwitch]="user.maxExerience">
+                        <span *ngSwitchCase="null">NA</span>
+                        <span *ngSwitchDefault>{{ user.maxExerience }}</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div [ngSwitch]="user.positions">
+                        <span *ngSwitchCase="null">NA</span>
+                        <span *ngSwitchDefault>{{ user.positions }}</span>
+                      </div>
+                    </td>
+
+                    <td>{{ user.profileCount }}</td>
+                    <td>
+                      <div
+                      class="col-md-12"
+                      *ngIf="role != 2"
+                  >
+                      <a
+                        mat-list-item
+                        (click)="openDialog(addprofileComponentRef, user.id)"
+                      >
+                        <span class="nav-caption"><u>Yes</u></span>
+                      </a>
+                      </div>
+                    </td>
+                    <td>0</td>
+                    <td>
+                      <div
+                      class="col-md-12"
+                      *ngIf="role != 2"
+                  >
+                      <a
+                        mat-list-item
+                        (click)="openDialog1(createqueryComponentRef, user.id)"
+                      >
+                        <span class="nav-caption"><u>Yes</u></span>
+                      </a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

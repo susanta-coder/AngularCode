@@ -1,0 +1,140 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Add Profile</h4>
+                      <p class="card-category">Complete user profile</p>
+                  </div>
+                  <div class="card-body">
+                      <form #myForm="ngForm">
+                          <div class="row">
+                            <div class="col-md-6" >
+                              <mat-form-field class="example-full-width">
+                                  <input
+                                      matInput
+                                      placeholder="Candidate Name"
+                                      name="name"
+                                      [(ngModel)]="name"
+                                      required
+                                  />
+                              </mat-form-field>
+                          </div>
+                          <div class="col-md-6" >
+                            <mat-form-field class="example-full-width">
+                                <input
+                                    matInput
+                                    placeholder="Total Experience"
+                                    name="totalExprience"
+                                    [(ngModel)]="totalExprience"
+
+                                />
+                            </mat-form-field>
+                        </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6" >
+                              <mat-form-field class="example-full-width">
+                                  <input
+                                      matInput
+                                      placeholder="Location"
+                                      name="currentLocation"
+                                      [(ngModel)]="currentLocation"
+                                      required
+                                  />
+                              </mat-form-field>
+                          </div>
+                              <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                      <input
+                                          matInput
+                                          placeholder="Contact Number"
+                                          name="contactNo"
+                                          [(ngModel)]="contactNo"
+                                          required />
+                                  </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6" >
+                                <mat-form-field class="example-full-width">
+                                    <input
+                                        matInput
+                                        placeholder="Email Id"
+                                        name="emailId"
+                                        [(ngModel)]="emailId"
+                                        required
+                                    />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                    <input
+                                        matInput
+                                        placeholder="Primary Skill"
+                                        name="primarySkills"
+                                        [(ngModel)]="primarySkills"
+                                        required
+                                    />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6" >
+                              <mat-form-field class="example-full-width">
+                                  <input
+                                      matInput
+                                      placeholder="Secondary Skill"
+                                      name="secondarySkills"
+                                      [(ngModel)]="secondarySkills"
+                                      required
+                                  />
+                              </mat-form-field>
+                          </div>
+                          <div class="col-md-6">
+                            <label>Remarks</label>
+                            <mat-form-field class="example-full-width">
+                                <textarea
+                                    matInput
+                                    placeholder=""
+                                    name="remarks"
+                                    [(ngModel)]="remarks"
+                                    required
+                                ></textarea>
+                            </mat-form-field>
+                        </div>
+                      </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <label>Upload JD Document:</label>
+                                <input
+                                type="file"
+                                id="fileName"
+                                name="fileName"
+                                ng-disabled="flag"
+                                accept="application/pdf,application/msword,
+                                        application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                                        (change)="onChange($event)"
+
+                            />
+
+                            </div>
+
+                          </div>
+                          <button
+                              mat-raised-button
+                              type="submit"
+                              class="btn btn-danger pull-right"
+                              (click)="addProfile(myForm)"
+                          >
+                              Add Profile
+                          </button>
+                          <div class="clearfix"></div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

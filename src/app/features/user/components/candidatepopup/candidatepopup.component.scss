@@ -1,0 +1,23 @@
+.pos{
+  display: inline-block;
+
+  clear: left;
+  width: 250px;
+  text-align: left;
+  color: black;
+
+}
+.posreadonly{
+  color: black;
+}
+.posvalue{
+  color:rgb(93, 19, 230);
+  clear: right;
+  text-align: right;
+
+}
+
+input {
+display: inline-block;
+text-align: left;
+}

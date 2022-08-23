@@ -1,0 +1,73 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h5 class="card-title">Candidate Details</h5>
+          </div>
+          <div class="card-body">
+            <form #myForm="ngForm">
+              <div class="row" >
+                <div class="col-md-12">
+                  <label class="posreadonly">Candidate Id:</label>
+                  <label class="posvalue"> {{ user.id }}</label>
+                </div>
+                <div class="col-md-12">
+                  <label class="posreadonly">Name:</label>
+                  <label class="posvalue"> {{ user.name }}</label>
+                </div>
+                <div class="col-md-12">
+                  <label class="posreadonly">Email Id:</label>
+                  <label class="posvalue"> {{ user.emailId }}</label>
+                </div>
+                <div class="col-md-12">
+                  <label class="posreadonly">Mobile No.:</label>
+                  <label class="posvalue"> {{ user.contactNo }}</label>
+                </div>
+                <div class="col-md-12">
+                  <label class="posreadonly">Qualification:</label>
+                  <label class="posvalue">{{ user.candidateProfileStatus[0].qualification }}</label>
+                </div>
+                <div class="col-md-12">
+                  <label class="posreadonly">Location:</label>
+                  <label class="posvalue">{{ user.currentLocation }}</label>
+                </div>
+
+                <div class="col-md-12">
+                  <label class="posreadonly">Current CTC(Rs, Lacs):</label>
+                  <label class="posvalue">{{ user.candidateProfileStatus[0].currentCtc }}</label>
+                </div>
+                <div class="col-md-12">
+                  <label class="posreadonly">Experience(Yrs):</label>
+                  <label class="posvalue">{{ user.totalExprience }}</label>
+                </div>
+                <div class="col-md-12">
+                  <label class="posreadonly">Primary Skill(s):</label>
+                  <label class="posvalue">{{ user.primarySkills }}</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="posreadonly">Secondary Skill(s):</label>
+                  <label class="posvalue">{{ user.secondarySkills }}</label>
+                </div>
+                <div class="col-md-12">
+                  <label class="posreadonly">Can Relocate?:</label>
+                  <label class="posvalue">{{ user.candidateProfileStatus[0].relocate}}</label>
+                </div>
+                <div class="col-md-12">
+                  <label class="posreadonly">Notice Period(Days):</label>
+                  <label class="posvalue">{{ user.candidateProfileStatus[0].noticePeriod }}</label>
+                </div>
+                <!-- <div class="col-md-12">
+                  <label class="posreadonly">Is Shift Involved:</label>
+                  <label class="posvalue">{{ user.isShiftInvolved }}</label>
+                </div> -->
+              </div>
+              <div class="row"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

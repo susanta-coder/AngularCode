@@ -1,0 +1,37 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Vendor User Profile Submitted Details</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>SL No</th>
+                  <th>Vendor Name</th>
+                  <th>Profile Submitted</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.emailId }}</td>
+                    <td>
+                      <a (click)="getCandidateDetailsByUserIdhyperLink(user.id)"
+                        ><font color="black"
+                          ><u>{{ user.profilereceivedCount }}</u></font
+                        ></a
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

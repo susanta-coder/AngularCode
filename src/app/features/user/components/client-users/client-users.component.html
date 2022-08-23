@@ -1,0 +1,88 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">All Client Users</h4>
+            <p class="card-category">List of all All Client Users</p>
+          </div>
+          <app-progress-bar *ngIf="isLoading"></app-progress-bar>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>SL No</th>
+                  <th>Client User Id</th>
+                  <th>Name</th>
+                  <th>Status</th>
+                  <th>Contact Number</th>
+                  <th>Email Id</th>
+                  <th>Location</th>
+                  <th>JD Raised</th>
+                  <th>Open Jds</th>
+                  <th>Open Positions</th>
+                  <th>Profile Received</th>
+                  <th>Screening Selects</th>
+                  <th>Positions Fullfilled</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of users">
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.statusId }}</td>
+                    <td>
+                      <div [ngSwitch]="user.contactNo">
+                        <span *ngSwitchCase="null">NA</span>
+                        <span *ngSwitchDefault>{{ user.contactNo }}</span>
+                      </div>
+                    </td>
+                    <td>{{ user.emailId }}</td>
+                    <td>{{ user.location }}</td>
+                    <td>
+                      <a (click)="getJdDetailsBasedClientUserIdHyperLink(user.id)"
+                        ><font color="black"
+                          ><u>{{ user.jdRaisedCount }}</u></font
+                        ></a
+                      >
+                    </td>
+                    <td>
+                      <a (click)="getOpenJdDetailsBasedClientUserIdHyperLink(user.id)"
+                        ><font color="black"
+                          ><u>{{ user.openJdsCount }}</u></font
+                        ></a
+                      >
+                    </td>
+                    <td>{{ user.openPositionsCount }}</td>
+                    <td>
+                      <a (click)="getprofilereceivedCountHyperLink(user.id)"
+                        ><font color="black"
+                          ><u>{{ user.profilereceivedCount }}</u></font
+                        ></a
+                      >
+                    </td>
+                    <td>
+                      <a (click)="getscreeningSelectCountHyperLink(user.id)"
+                        ><font color="black"
+                          ><u>{{ user.screeningSelectCount }}</u></font
+                        ></a
+                      >
+                    </td>
+                    <td>
+                      <a (click)="getscreeningSelectCountHyperLink(user.id)"
+                        ><font color="black"
+                          ><u>{{ user.screeningSelectCount }}</u></font
+                        ></a
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

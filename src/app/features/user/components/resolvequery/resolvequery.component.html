@@ -1,0 +1,56 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Respond  Query</h4>
+                    </div>
+                    <div class="card-body">
+                        <form #myForm="ngForm">
+                            <div class="col-md-6">
+                                <label class="posreadonly">Query Id:</label>
+                                <label class="posvalue">
+                                    <span class="nav-caption"
+                                      ><u>{{user.id }}</u></span>
+                                  </label>
+                              </div>
+                            <div class="row">
+                                 <div class="col-md-6">
+                                    <label class="posreadonly">Subject:</label>
+                                    <label class="posvalue"> {{ user.message }}</label>
+                                  </div> 
+                                  <div class="col-md-6">
+                                    <label class="posreadonly">Query:</label>
+                                    <label class="posvalue"> {{ user.query }}</label>
+                                  </div> 
+                          <div class="col-md-6" >
+                             <mat-form-field class="example-full-width">
+                                <input
+                                    matInput
+                                    placeholder="Response"
+                                    name="feedback"
+                                    [(ngModel)]="feedback"
+                                    required
+                                />
+                            </mat-form-field> 
+                        </div>
+                    </div>
+                    <div class="row"></div>
+                            <button
+                                mat-raised-button
+                                type="submit"
+                                class="btn btn-danger pull-right"
+                                (click)="resolveQuery(myForm)"
+                            >
+                                Submit 
+                            </button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
